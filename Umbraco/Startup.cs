@@ -36,8 +36,6 @@ namespace Umbraco
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddDbContext<UmbracoContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("UmbracoContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
