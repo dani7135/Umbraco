@@ -12,6 +12,7 @@ using Umbraco.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Umbraco.Models;
 
 namespace Umbraco
 {
@@ -34,6 +35,9 @@ namespace Umbraco
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddDbContext<UmbracoContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("UmbracoContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
